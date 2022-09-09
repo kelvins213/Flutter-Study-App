@@ -31,4 +31,9 @@ class SubjectDatabaseContents{
     business,
   ];
 
+  static Future <List<Materias>> getSubjectsList() async{
+    await Future.delayed(const Duration(seconds: 5));
+    return  subjects;
+  }
+
 }

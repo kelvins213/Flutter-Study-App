@@ -29,28 +29,48 @@ class _CardMaterias extends State <CardMaterias> {
       ),
       body: ListView(
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Column(
-                children: [
-                  buildSearchFunction(lupa: SubjectDatabaseContents.lupa),
-                  ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: SubjectDatabaseContents.subjects.length,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            const SizedBox(height: 60),
-                            buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents),
-                          ],
-                        );
-                      }
-                  ),
-                ],
-              ),
-            ),
+          FutureBuilder(
+              future: SubjectDatabaseContents.getSubjectsList(),
+              builder: (context, snapshot) {
+                if(snapshot.hasData){
+                  return Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        children: [
+                          buildSearchFunction(lupa: SubjectDatabaseContents.lupa),
+                          ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: SubjectDatabaseContents.subjects.length,
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                    const SizedBox(height: 60),
+                                    buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents[index]),
+                                  ],
+                                );
+                              }
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                else{
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(150),
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              }
           ),
         ],
       ),
