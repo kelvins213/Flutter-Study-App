@@ -35,30 +35,19 @@ class _CardMaterias extends State <CardMaterias> {
               child: Column(
                 children: [
                   buildSearchFunction(lupa: SubjectDatabaseContents.lupa),
-                  //const Divider(height: 60),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.portuguese, listaMaterias: DatabaseContents.portuguese_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.math, listaMaterias: DatabaseContents.maths_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.history, listaMaterias: DatabaseContents.history_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.geografy, listaMaterias: DatabaseContents.geografy_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.philosophy, listaMaterias: DatabaseContents.philosophy_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.sociology, listaMaterias: DatabaseContents.sociology_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.physical, listaMaterias: DatabaseContents.physical_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.chemistry, listaMaterias: DatabaseContents.chemistry_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.biology, listaMaterias: DatabaseContents.biology_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.programming, listaMaterias: DatabaseContents.programming_contents),
-                  const SizedBox(height: 60),
-                  buildBody(materia: SubjectDatabaseContents.business, listaMaterias: DatabaseContents.business_contents),
-                  const SizedBox(height: 60),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: SubjectDatabaseContents.subjects.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            const SizedBox(height: 60),
+                            buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents),
+                          ],
+                        );
+                      }
+                  ),
                 ],
               ),
             ),

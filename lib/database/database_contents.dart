@@ -38,7 +38,6 @@ class DatabaseContents {
   static Conteudos conteudosDeDesenvolvimentoPessoal2 = Conteudos("SUCESSO E FRACASSO", Icons.people, "EMPREENDEDORISMO", "https://cdn.cloudcoaching.com.br/wp-content/uploads/2019/01/sucesso-x-fracasso-dois-lados-da-mesma-moeda-1200x628.png", "Fracasso significa tentativa. E, quando alguém tenta muitas vezes, se torna excelente naquilo que está repetindo. Sucesso é uma questão de bons hábitos que se tornam excelentes comportamentos.");
   static Conteudos conteudosDeExemploEmpreendedor = Conteudos("ELLON LUSK", Icons.store, "EMPREENDEDORISMO", "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2022/05/05130137/Elon-Mudk-1.jpg", "A Tesla é uma empresa especializada em carros elétricos fundada em 2003, em São Francisco, Califórnia pelos engenheiros Martin Eberhard e Marc Tarpenning. No ano seguinte, a companhia recebeu um investimento de US6,5 milhões de Elon Musk, que passou a ocupar o cargo de CEO e ser reconhecido como um dos cofundadores.");
 
-
   static  List<Conteudos> portuguese_contents = [
     conteudosDeSubstantivos,
     conteudosDeAdjetivos,
@@ -106,6 +105,21 @@ class DatabaseContents {
     conteudosDeDesenvolvimentoPessoal2,
     conteudosDeExemploEmpreendedor,
   ];
+
+  static List<List> subjects_contents = [
+    portuguese_contents,
+    maths_contents,
+    history_contents,
+    geografy_contents,
+    philosophy_contents,
+    sociology_contents,
+    physical_contents,
+    chemistry_contents,
+    biology_contents,
+    programming_contents,
+    business_contents,
+  ];
+
 
   static Future <List<Conteudos>> getPortugueseListContents() async{
     await Future.delayed(const Duration(seconds: 5));
