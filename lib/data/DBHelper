@@ -23,7 +23,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects5.db");
+    String path = join(databasePath, "subjects6.db");
     print(path);
 
     Database database = await openDatabase(
@@ -90,16 +90,43 @@ class DBHelper {
   }) async {
 
     String sql;
-    dynamic result;
+    dynamic title;
+    dynamic icon;
+    dynamic titleAppBar;
+    dynamic imagem;
+    dynamic conceito;
 
     print(totalLenght);
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
           'FROM Title '
           "WHERE titleID = '$i'; ";
+      title = await db.rawQuery(sql);
+      print(title);
 
-      result = await db.rawQuery(sql);
-      print(result);
+      sql = 'SELECT * '
+          'FROM Icon '
+          "WHERE iconID = '$i'; ";
+      icon = await db.rawQuery(sql);
+      print(icon);
+
+      sql = 'SELECT * '
+          'FROM TitleAppBar '
+          "WHERE titleappbarID = '$i'; ";
+      titleAppBar = await db.rawQuery(sql);
+      print(titleAppBar);
+
+      sql = 'SELECT * '
+          'FROM Image '
+          "WHERE imageID = '$i'; ";
+      imagem = await db.rawQuery(sql);
+      print(imagem);
+
+      sql = 'SELECT * '
+          'FROM Concept '
+          "WHERE conceptID = '$i'; ";
+      conceito = await db.rawQuery(sql);
+      print(conceito);
     }
   }
 }
