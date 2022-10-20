@@ -6,19 +6,24 @@ import 'package:untitled4/data/database_contents.dart';
 class DBHelper {
 
   static List subjectList = DatabaseContents.subjects_contents;
-  //static List portuguese = DatabaseContents.portuguese_contents;
-  //static List maths = DatabaseContents.maths_contents;
-  //static List history = DatabaseContents.history_contents;
-  //static List geografy = DatabaseContents.geografy_contents;
-  //static List philosophy = DatabaseContents.philosophy_contents;
-  //static List sociology = DatabaseContents.sociology_contents;
-  //static List physical = DatabaseContents.physical_contents;
-  //static List portuguese = DatabaseContents.portuguese_contents;
-  //static List portuguese = DatabaseContents.portuguese_contents;
+
+  static int portugueseLength = DatabaseContents.portuguese_contents.length;
+  static int mathsLength = DatabaseContents.maths_contents.length;
+  static int historyLength = DatabaseContents.history_contents.length;
+  static int geografyLength = DatabaseContents.geografy_contents.length;
+  static int philosophyLength = DatabaseContents.philosophy_contents.length;
+  static int sociologyLength = DatabaseContents.sociology_contents.length;
+  static int physicalLength = DatabaseContents.physical_contents.length;
+  static int chemistryLenght = DatabaseContents.chemistry_contents.length;
+  static int biologyLenght = DatabaseContents.biology_contents.length;
+  static int programmingLenght = DatabaseContents.programming_contents.length;
+  static int businessLenght = DatabaseContents.business_contents.length;
+
+  static int totalLenght = programmingLenght + mathsLength + historyLength + geografyLength + philosophyLength + sociologyLength + philosophyLength + physicalLength + chemistryLenght + biologyLenght + programmingLenght + businessLenght;
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects2.db");
+    String path = join(databasePath, "subjects1.db");
     print(path);
 
     Database database = await openDatabase(
@@ -32,8 +37,6 @@ class DBHelper {
 
   Future<FutureOr<void>> onCreate(Database db, int version) async{
     String sql;
-
-
 
     sql = "create table Title(titleID INTERGER PRIMARY KEY, title varchar(40))";
     await db.execute(sql);
@@ -50,7 +53,8 @@ class DBHelper {
     sql = "create table Concept(conceptID INTERGER PRIMARY KEY, concept varchar(500))";
     await db.execute(sql);
 
-    insertIntoDatas(db: db);
+    await insertIntoDatas(db: db);
+    await fullFillObjects(totalLength: totalLenght, db: db);
   }
 
   Future<FutureOr<void>> insertIntoDatas({
@@ -60,9 +64,7 @@ class DBHelper {
     int count = 0;
 
     for (var i in subjectList) {
-      print(i);
       for (var j in i) {
-        print(j);
         sql = "insert into Title(titleID, title) values ('$count', '${j.titulo}');";
         await db.execute(sql);
 
@@ -81,4 +83,23 @@ class DBHelper {
       }
     }
   }
+
+  Future<void> fullFillObjects({
+    required int totalLength,
+    required Database db,
+  }) async {
+    String sql;
+    dynamic result;
+
+    for (var i = 0; i < totalLength; i++) {
+      sql = 'SELECT * '
+          'FROM Title '
+          "WHERE titleID = '$i'; ";
+
+      result = await db.rawQuery(sql);
+      print(result);
+    }
+
+  }
+
 }
