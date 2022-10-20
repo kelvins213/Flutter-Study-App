@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/database_contents.dart';
 
 class DBHelper {
@@ -14,34 +17,51 @@ class DBHelper {
   //static List portuguese = DatabaseContents.portuguese_contents;
 
 
-  void createTables(){
+  Future<FutureOr<void>> creatTables({
+    required Database db,
+  }) async{
     String sql;
 
     sql = "create table Title(titleID INTERGER PRIMARY KEY, title varchar(40))";
-    //db.execute(sql);
+    await db.execute(sql);
 
     sql = "create table Icon(iconID INTERGER PRIMARY KEY, iconName varchar(40))";
-    //db.execute(sql);
+    await db.execute(sql);
 
     sql = "create table TitleAppBar(titleappbarID INTERGER PRIMARY KEY, titleAppBar varchar(40))";
-    //db.execute(sql);
+    await db.execute(sql);
 
     sql = "create table Image(imageID INTERGER PRIMARY KEY, imageLink varchar(300))";
-    //db.execute(sql);
+    await db.execute(sql);
 
     sql = "create table Concept(conceptID INTERGER PRIMARY KEY, concept varchar(500))";
-    //db.execute(sql);
-    
-    
+    await db.execute(sql);
   }
 
-  void insertIntoDatabase(){
+  Future<FutureOr<void>> insertIntoDatas({
+    required Database db,
+  }) async{
+    String sql;
+    int count = 0;
+
     for (var i in subjectList) {
       for (var j in i) {
-        //insertar no banco
+        sql = "insert into Title(titleID, serieLink) values ('title-$count', '${j.titulo}');";
+        await db.execute(sql);
 
+        sql = "insert into Icon(iconID, iconName) values ('icon-$count', '${j.icon}');";
+        await db.execute(sql);
+
+        sql = "insert into TitleAppBar(titleappbarID, titleAppBar) values ('titleAppBar-$count', '${j.titleAppBar}');";
+        await db.execute(sql);
+
+        sql = "insert into Icon(imageID, imageLink) values ('image-$count', '${j.imagem}');";
+        await db.execute(sql);
+
+        sql = "insert into Concept(conceptID, concept) values ('concept-$count', '${j.conceito}');";
+        await db.execute(sql);
+        count++;
       }
     }
   }
-
 }
