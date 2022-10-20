@@ -90,6 +90,7 @@ class DBHelper {
   }) async {
 
     String sql;
+    //List<dynamic> titleList = [];
     dynamic title;
     dynamic icon;
     dynamic titleAppBar;
@@ -101,6 +102,7 @@ class DBHelper {
           'FROM Title '
           "WHERE titleID = '$i'; ";
       title = await db.rawQuery(sql);
+      //await titleList.add(title);
 
       sql = 'SELECT * '
           'FROM Icon '
