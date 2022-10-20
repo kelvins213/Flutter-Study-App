@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:untitled4/domain/conteudos_das_materias.dart';
 
 class DatabaseContents {
+  //static Conteudos conteudosDeSubstantivo = Conteudos("substantivo", etc ...)
+  //static Conteudos conteudosDeSubstantivo = Conteudos(title[0], icons[0], titleAppBar[0], image[0])
+
+  //os métodos de converter o json devem estar nessa classe.
   static Conteudos conteudosDeSubstantivos = Conteudos("SUBSTANTIVOS", Icons.book,"PORTUGUÊS","https://static3.depositphotos.com/1006126/210/i/950/depositphotos_2102902-stock-photo-alphabet-letters-made-with-diamonds.jpg", "Qualquer classe gramatical antecedida por artigo, pronome demonstrativo, pronome indefinido ou pronome possessivo vira substantivo: o amar, um amanhã, nosso sentir, um não sei quê, o sim, o não, algum talvez, este falar, um abrir-se, o querer, aquele claro-escuro....");
   static Conteudos conteudosDeAdjetivos = Conteudos("ADJETIVOS", Icons.read_more,"PORTUGUÊS","https://i.pinimg.com/736x/22/20/e0/2220e036644ab7c29963fe63bb2e20af.jpg", "Mas, afinal, o que é um adjetivo? O adjetivo é uma classe de palavras variável, que é usada para colocar uma qualidade ao substantivo. Quando falamos em variável, quer dizer que pode mudar de acordo com gênero e número, seguindo os termos que qualificam. Os adjetivos também podem alterar o grau para passar maior ou menor veemência de determinada característica.");
   static Conteudos conteudosDeAdverbios = Conteudos("ADVÉRBIOS", Icons.chrome_reader_mode,"PORTUGUÊS","https://blog.flaviarita.com/wp-content/uploads/2020/03/Imagem1-1.png", "Adjectives Describe NounsIn Spanish, adjetivos can be used to describe a person place or thing, and are most often found immediately before the noun. For example, the sentence Tom is an excellent singer / Tom es un excelente cantante,");
@@ -36,7 +40,7 @@ class DatabaseContents {
   static Conteudos conteudosDeProgramacaoWeb = Conteudos("PROGRAMAÇÃO WEB", Icons.dashboard, "PROGRAMAÇÃO", "https://respostas.sebrae.com.br/wp-content/uploads/2020/06/0-destaque-linguagens-de-programacao-2019.jpg", "As linguagens de programação web são utilizadas especificamente para o desenvolvimentos das camadas de apresentação e de lógica de negócio de web sites, portais e aplicações web em geral.");
   static Conteudos conteudosDeDesenvolvimentoPessoal1 = Conteudos("POSTURA DE VIDA", Icons.nightlife, "EMPREENDEDORISMO", "https://vidasimples.co/wp-content/uploads/2019/10/sentido-para-vida-vida-simples-1024x683.jpg", "Empreender é usar o tempo e as suas melhores competências técnicas e comportamentais (soft skills) com autonomia para criar valor, assumindo riscos e aceitando desafios. Empreender pode ser uma ação de uma ou mais pessoas que possuam esse perfil.");
   static Conteudos conteudosDeDesenvolvimentoPessoal2 = Conteudos("SUCESSO E FRACASSO", Icons.people, "EMPREENDEDORISMO", "https://cdn.cloudcoaching.com.br/wp-content/uploads/2019/01/sucesso-x-fracasso-dois-lados-da-mesma-moeda-1200x628.png", "Fracasso significa tentativa. E, quando alguém tenta muitas vezes, se torna excelente naquilo que está repetindo. Sucesso é uma questão de bons hábitos que se tornam excelentes comportamentos.");
-  static Conteudos conteudosDeExemploEmpreendedor = Conteudos("ELLON LUSK", Icons.store, "EMPREENDEDORISMO", "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2022/05/05130137/Elon-Mudk-1.jpg", "A Tesla é uma empresa especializada em carros elétricos fundada em 2003, em São Francisco, Califórnia pelos engenheiros Martin Eberhard e Marc Tarpenning. No ano seguinte, a companhia recebeu um investimento de US6,5 milhões de Elon Musk, que passou a ocupar o cargo de CEO e ser reconhecido como um dos cofundadores.");
+  static Conteudos conteudosDeExemploEmpreendedor = Conteudos("ELLON MUSK", Icons.store, "EMPREENDEDORISMO", "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2022/05/05130137/Elon-Mudk-1.jpg", "A Tesla é uma empresa especializada em carros elétricos fundada em 2003, em São Francisco, Califórnia pelos engenheiros Martin Eberhard e Marc Tarpenning. No ano seguinte, a companhia recebeu um investimento de US6,5 milhões de Elon Musk, que passou a ocupar o cargo de CEO e ser reconhecido como um dos cofundadores.");
 
   static  List<Conteudos> portuguese_contents = [
     conteudosDeSubstantivos,
@@ -182,3 +186,37 @@ class DatabaseContents {
   }
 
 }
+
+/*
+=================================================================
+class User {
+  late String username;
+  late String password;
+
+  User({required this.username, required this.password});
+
+  User.fromJson(Map<String, dynamic> json) {
+    username = json['username'];
+    password = json['password'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['username'] = username;
+    data['password'] = password;
+    return data;
+  }
+}
+=================================================================
+
+=================================================================
+String sql = 'SELECT * FROM user;';
+    final result = await db.rawQuery(sql);
+
+    List<User> lista = <User>[];
+    for(var json in result){
+      User usuario = User.fromJson(json);
+      lista.add(usuario);
+    }
+=================================================================
+*/
