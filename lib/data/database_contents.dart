@@ -4,7 +4,7 @@ import 'package:untitled4/domain/conteudos_das_materias.dart';
 class DatabaseContents {
   //static Conteudos conteudosDeSubstantivo = Conteudos("substantivo", etc ...)
   //static Conteudos conteudosDeSubstantivo = Conteudos(title[0], icons[0], titleAppBar[0], image[0])
-
+  //testing
   //os métodos de converter o json devem estar nessa classe.
   static Conteudos conteudosDeSubstantivos = Conteudos("SUBSTANTIVOS", Icons.book,"PORTUGUÊS","https://static3.depositphotos.com/1006126/210/i/950/depositphotos_2102902-stock-photo-alphabet-letters-made-with-diamonds.jpg", "Qualquer classe gramatical antecedida por artigo, pronome demonstrativo, pronome indefinido ou pronome possessivo vira substantivo: o amar, um amanhã, nosso sentir, um não sei quê, o sim, o não, algum talvez, este falar, um abrir-se, o querer, aquele claro-escuro....");
   static Conteudos conteudosDeAdjetivos = Conteudos("ADJETIVOS", Icons.read_more,"PORTUGUÊS","https://i.pinimg.com/736x/22/20/e0/2220e036644ab7c29963fe63bb2e20af.jpg", "Mas, afinal, o que é um adjetivo? O adjetivo é uma classe de palavras variável, que é usada para colocar uma qualidade ao substantivo. Quando falamos em variável, quer dizer que pode mudar de acordo com gênero e número, seguindo os termos que qualificam. Os adjetivos também podem alterar o grau para passar maior ou menor veemência de determinada característica.");
