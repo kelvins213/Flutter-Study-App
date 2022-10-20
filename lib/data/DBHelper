@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/database_contents.dart';
 
@@ -16,11 +16,24 @@ class DBHelper {
   //static List portuguese = DatabaseContents.portuguese_contents;
   //static List portuguese = DatabaseContents.portuguese_contents;
 
+  initDB() async {
+    String databasePath = await getDatabasesPath();
+    String path = join(databasePath, "subjects2.db");
+    print(path);
 
-  Future<FutureOr<void>> creatTables({
-    required Database db,
-  }) async{
+    Database database = await openDatabase(
+        path,
+        version: 1,
+        onCreate: onCreate,
+    );
+        return database;
+  }
+
+
+  Future<FutureOr<void>> onCreate(Database db, int version) async{
     String sql;
+
+
 
     sql = "create table Title(titleID INTERGER PRIMARY KEY, title varchar(40))";
     await db.execute(sql);
@@ -36,6 +49,8 @@ class DBHelper {
 
     sql = "create table Concept(conceptID INTERGER PRIMARY KEY, concept varchar(500))";
     await db.execute(sql);
+
+    insertIntoDatas(db: db);
   }
 
   Future<FutureOr<void>> insertIntoDatas({
@@ -45,20 +60,22 @@ class DBHelper {
     int count = 0;
 
     for (var i in subjectList) {
+      print(i);
       for (var j in i) {
-        sql = "insert into Title(titleID, serieLink) values ('title-$count', '${j.titulo}');";
+        print(j);
+        sql = "insert into Title(titleID, title) values ('$count', '${j.titulo}');";
         await db.execute(sql);
 
-        sql = "insert into Icon(iconID, iconName) values ('icon-$count', '${j.icon}');";
+        sql = "insert into Icon(iconID, iconName) values ('$count', '${j.icon}');";
         await db.execute(sql);
 
-        sql = "insert into TitleAppBar(titleappbarID, titleAppBar) values ('titleAppBar-$count', '${j.titleAppBar}');";
+        sql = "insert into TitleAppBar(titleappbarID, titleAppBar) values ('$count', '${j.titleAppBar}');";
         await db.execute(sql);
 
-        sql = "insert into Icon(imageID, imageLink) values ('image-$count', '${j.imagem}');";
+        sql = "insert into Image(imageID, imageLink) values ('$count', '${j.imagem}');";
         await db.execute(sql);
 
-        sql = "insert into Concept(conceptID, concept) values ('concept-$count', '${j.conceito}');";
+        sql = "insert into Concept(conceptID, concept) values ('$count', '${j.conceito}');";
         await db.execute(sql);
         count++;
       }
