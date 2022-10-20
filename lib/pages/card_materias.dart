@@ -14,6 +14,7 @@ class CardMaterias extends StatefulWidget {
 class _CardMaterias extends State <CardMaterias> {
   @override
   Widget build(BuildContext context) {
+    DBHelper().initDB();
     return Scaffold(
       backgroundColor: Color(0xFF6E39F5),
       appBar: AppBar(
