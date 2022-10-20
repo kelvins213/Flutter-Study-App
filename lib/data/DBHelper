@@ -23,7 +23,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects6.db");
+    String path = join(databasePath, "subjects9.db");
     print(path);
 
     Database database = await openDatabase(
@@ -96,37 +96,38 @@ class DBHelper {
     dynamic imagem;
     dynamic conceito;
 
-    print(totalLenght);
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
           'FROM Title '
           "WHERE titleID = '$i'; ";
       title = await db.rawQuery(sql);
-      print(title);
 
       sql = 'SELECT * '
           'FROM Icon '
           "WHERE iconID = '$i'; ";
       icon = await db.rawQuery(sql);
-      print(icon);
 
       sql = 'SELECT * '
           'FROM TitleAppBar '
           "WHERE titleappbarID = '$i'; ";
       titleAppBar = await db.rawQuery(sql);
-      print(titleAppBar);
 
       sql = 'SELECT * '
           'FROM Image '
           "WHERE imageID = '$i'; ";
       imagem = await db.rawQuery(sql);
-      print(imagem);
 
       sql = 'SELECT * '
           'FROM Concept '
           "WHERE conceptID = '$i'; ";
       conceito = await db.rawQuery(sql);
-      print(conceito);
+      //conceito é do tipo QueryResultSet
+      //conceito[0] é do tipo RowQuery
+      print(conceito[0]);
+      print(conceito[0].runtimeType);
+
+
+      //transformar o json para alguma coisa e usar para criar as variáveis
     }
   }
 }
