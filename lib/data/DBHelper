@@ -19,11 +19,11 @@ class DBHelper {
   static int programmingLenght = DatabaseContents.programming_contents.length;
   static int businessLenght = DatabaseContents.business_contents.length;
 
-  static int totalLenght = programmingLenght + mathsLength + historyLength + geografyLength + philosophyLength + sociologyLength + philosophyLength + physicalLength + chemistryLenght + biologyLenght + programmingLenght + businessLenght;
+  static int totalLenght = portugueseLength + mathsLength + historyLength + geografyLength + philosophyLength + sociologyLength + physicalLength + chemistryLenght + biologyLenght + programmingLenght + businessLenght;
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects1.db");
+    String path = join(databasePath, "subjects5.db");
     print(path);
 
     Database database = await openDatabase(
@@ -88,9 +88,11 @@ class DBHelper {
     required int totalLength,
     required Database db,
   }) async {
+
     String sql;
     dynamic result;
 
+    print(totalLenght);
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
           'FROM Title '
@@ -99,7 +101,5 @@ class DBHelper {
       result = await db.rawQuery(sql);
       print(result);
     }
-
   }
-
 }
