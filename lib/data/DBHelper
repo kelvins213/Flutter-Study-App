@@ -1,0 +1,25 @@
+import 'package:untitled4/data/database_contents.dart';
+
+class DBHelper {
+
+  static List subjectList = DatabaseContents.subjects_contents;
+  static List portuguese = DatabaseContents.portuguese_contents;
+  static List maths = DatabaseContents.maths_contents;
+  static List history = DatabaseContents.history_contents;
+  static List geografy = DatabaseContents.geografy_contents;
+  static List philosophy = DatabaseContents.philosophy_contents;
+  static List sociology = DatabaseContents.sociology_contents;
+  static List physical = DatabaseContents.physical_contents;
+  //static List portuguese = DatabaseContents.portuguese_contents;
+  //static List portuguese = DatabaseContents.portuguese_contents;
+
+  void insertIntoDatabase(){
+    for (var i in subjectList) {
+      for (var j in i) {
+        //insertar no banco
+        
+      }
+    }
+  }
+
+}
