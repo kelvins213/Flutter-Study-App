@@ -3,21 +3,43 @@ import 'package:untitled4/data/database_contents.dart';
 class DBHelper {
 
   static List subjectList = DatabaseContents.subjects_contents;
-  static List portuguese = DatabaseContents.portuguese_contents;
-  static List maths = DatabaseContents.maths_contents;
-  static List history = DatabaseContents.history_contents;
-  static List geografy = DatabaseContents.geografy_contents;
-  static List philosophy = DatabaseContents.philosophy_contents;
-  static List sociology = DatabaseContents.sociology_contents;
-  static List physical = DatabaseContents.physical_contents;
+  //static List portuguese = DatabaseContents.portuguese_contents;
+  //static List maths = DatabaseContents.maths_contents;
+  //static List history = DatabaseContents.history_contents;
+  //static List geografy = DatabaseContents.geografy_contents;
+  //static List philosophy = DatabaseContents.philosophy_contents;
+  //static List sociology = DatabaseContents.sociology_contents;
+  //static List physical = DatabaseContents.physical_contents;
   //static List portuguese = DatabaseContents.portuguese_contents;
   //static List portuguese = DatabaseContents.portuguese_contents;
+
+
+  void createTables(){
+    String sql;
+
+    sql = "create table Title(titleID INTERGER PRIMARY KEY, title varchar(40))";
+    //db.execute(sql);
+
+    sql = "create table Icon(iconID INTERGER PRIMARY KEY, iconName varchar(40))";
+    //db.execute(sql);
+
+    sql = "create table TitleAppBar(titleappbarID INTERGER PRIMARY KEY, titleAppBar varchar(40))";
+    //db.execute(sql);
+
+    sql = "create table Image(imageID INTERGER PRIMARY KEY, imageLink varchar(300))";
+    //db.execute(sql);
+
+    sql = "create table Concept(conceptID INTERGER PRIMARY KEY, concept varchar(500))";
+    //db.execute(sql);
+    
+    
+  }
 
   void insertIntoDatabase(){
     for (var i in subjectList) {
       for (var j in i) {
         //insertar no banco
-        
+
       }
     }
   }
