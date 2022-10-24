@@ -24,7 +24,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects1.db");
+    String path = join(databasePath, "subjects4.db");
     print(path);
 
     Database database = await openDatabase(
@@ -35,23 +35,10 @@ class DBHelper {
         return database;
   }
 
-
   Future<FutureOr<void>> onCreate(Database db, int version) async{
     String sql;
 
-    sql = "create table Title(titleID INTERGER PRIMARY KEY, title varchar(40))";
-    await db.execute(sql);
-
-    sql = "create table Icon(iconID INTERGER PRIMARY KEY, iconName varchar(40))";
-    await db.execute(sql);
-
-    sql = "create table TitleAppBar(titleappbarID INTERGER PRIMARY KEY, titleAppBar varchar(40))";
-    await db.execute(sql);
-
-    sql = "create table Image(imageID INTERGER PRIMARY KEY, imageLink varchar(300))";
-    await db.execute(sql);
-
-    sql = "create table Concept(conceptID INTERGER PRIMARY KEY, concept varchar(500))";
+    sql = "create table SubjectAtributes(id INTERGER PRIMARY KEY, title varchar(40), iconName varchar(40),  titleAppBar varchar(40), imageLink varchar(300), concept varchar(500))";
     await db.execute(sql);
 
     await insertIntoDatas(db: db);
@@ -66,24 +53,9 @@ class DBHelper {
 
     for (var i in subjectList) {
       for (var j in i) {
-        sql = "insert into Title(titleID, title) values ('$count', '${j.titulo}');";
-        await db.execute(sql);
-
-        sql = "insert into Icon(iconID, iconName) values ('$count', '${j.icon}');";
-        await db.execute(sql);
-
-        sql = "insert into TitleAppBar(titleappbarID, titleAppBar) values ('$count', '${j.titleAppBar}');";
-        await db.execute(sql);
-
-        sql = "insert into Image(imageID, imageLink) values ('$count', '${j.imagem}');";
-        await db.execute(sql);
-
-        sql = "insert into Concept(conceptID, concept) values ('$count', '${j.conceito}');";
+        sql = "insert into SubjectAtributes(id, title, iconName, titleAppBar, imageLink, concept) VALUES ('$count', '${j.titulo}', '${j.icon}', '${j.titleAppBar}', '${j.imagem}', '${j.conceito}');";
         await db.execute(sql);
         count++;
-
-        //Json(title: )
-
       }
     }
   }
@@ -94,46 +66,15 @@ class DBHelper {
   }) async {
 
     String sql;
-    dynamic title;
-    dynamic icon;
-    dynamic titleAppBar;
-    dynamic imagem;
-    dynamic conceito;
-
+    dynamic subject;
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
-          'FROM Title '
-          "WHERE titleID = '$i'; ";
-      title = await db.rawQuery(sql);
-      print(title);
-
-      sql = 'SELECT * '
-          'FROM Icon '
-          "WHERE iconID = '$i'; ";
-      icon = await db.rawQuery(sql);
-      print(icon);
-
-      sql = 'SELECT * '
-          'FROM TitleAppBar '
-          "WHERE titleappbarID = '$i'; ";
-      titleAppBar = await db.rawQuery(sql);
-      print(titleAppBar);
-
-      sql = 'SELECT * '
-          'FROM Image '
-          "WHERE imageID = '$i'; ";
-      imagem = await db.rawQuery(sql);
-      print(imagem);
-
-      sql = 'SELECT * '
-          'FROM Concept '
-          "WHERE conceptID = '$i'; ";
-      conceito = await db.rawQuery(sql);
-      print(conceito);
-
-      final Json object = Json(title: title[i], titleAppBar: titleAppBar[i], icon: icon[i], conceito: conceito[i], imagem: imagem[i]);
-      //Json.fromJson(object);
-
+          'FROM SubjectAtributes '
+          "WHERE id = '$i'; ";
+      subject = await db.rawQuery(sql);
+      //error type 'QueryResultSet' is not a subtype of type 'Map<String, dynamic>'
+      print(subject);
+      Json.fromJson(subject);
     }
   }
 }
