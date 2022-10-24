@@ -13,11 +13,20 @@ class Request{
         'FROM SubjectAtributes '
         "WHERE id = '$count'; ";
     final subject = await db.rawQuery(sql);
-
     Json objectSub = Json.fromJson(subject[0]);
-
     list.add(objectSub);
-    print(list[count].titleAppBar);
-    print(list.length);
+  }
+
+  buildSubjectList({
+    required listLength,
+    required String appBarName,
+  }){
+    List list = [];
+
+    for (var i = 0; i < listLength; i++) {
+
+    }
+
+    return list;
   }
 }
