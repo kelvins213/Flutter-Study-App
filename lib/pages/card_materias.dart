@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled4/data/DBHelper.dart';
 import 'package:untitled4/data/database_contents.dart';
+import 'package:untitled4/data/request_data.dart';
 import 'package:untitled4/data/subject_database.dart';
 import 'package:untitled4/domain/conteudos_das_materias.dart';
 import 'package:untitled4/pages/card_submateria.dart';
@@ -50,6 +51,7 @@ class _CardMaterias extends State <CardMaterias> {
                                 return Column(
                                   children: [
                                     const SizedBox(height: 60),
+                                    //buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: Request().buildSubjectList(listLength: DatabaseContents.subjects_contents[index].length, appBarName: DatabaseContents.subjects_contents[index][0].titleAppBar)),
                                     buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents[index]),
                                   ],
                                 );
