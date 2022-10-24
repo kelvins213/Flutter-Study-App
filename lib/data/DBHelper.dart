@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/database_contents.dart';
+import 'package:untitled4/data/request_data.dart';
 import 'package:untitled4/domain/JsonData.dart';
 
 class DBHelper {
@@ -24,7 +25,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects8.db");
+    String path = join(databasePath, "subjects13.db");
     print(path);
 
     Database database = await openDatabase(
@@ -40,14 +41,15 @@ class DBHelper {
 
     sql = "create table SubjectAtributes(id INTERGER PRIMARY KEY, title varchar(40), iconName varchar(40),  titleAppBar varchar(40), imageLink varchar(300), concept varchar(500))";
     await db.execute(sql);
-
-    await insertIntoDatas(db: db);
-    await fullFillObjects(totalLength: totalLenght, db: db);
+    await insertIntoDatas(db: db, totalLength: totalLenght);
   }
 
   Future<FutureOr<void>> insertIntoDatas({
     required Database db,
+    required int totalLength,
   }) async{
+
+    List <Json> objectsSubList = [];
     String sql;
     int count = 0;
 
@@ -55,29 +57,9 @@ class DBHelper {
       for (var j in i) {
         sql = "insert into SubjectAtributes(id, title, iconName, titleAppBar, imageLink, concept) VALUES ('$count', '${j.titulo}', '${j.icon}', '${j.titleAppBar}', '${j.imagem}', '${j.conceito}');";
         await db.execute(sql);
+        Request().fullFillObjects(db: db, count: count, list: objectsSubList);
         count++;
       }
-    }
-  }
-
-  Future<void> fullFillObjects({
-    required int totalLength,
-    required Database db,
-  }) async {
-
-    List <Json> objectsSubList = [];
-    String sql;
-    for (var i = 0; i < totalLength; i++) {
-      sql = 'SELECT * '
-          'FROM SubjectAtributes '
-          "WHERE id = '$i'; ";
-      final subject = await db.rawQuery(sql);
-
-      Json objectSub = Json.fromJson(subject[0]);
-      objectsSubList.add(objectSub);
-
-      print(objectsSubList[i]);
-      print(objectsSubList[i].title);
     }
   }
 }
