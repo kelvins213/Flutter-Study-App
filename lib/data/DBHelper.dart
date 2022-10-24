@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/database_contents.dart';
+import 'package:untitled4/domain/JsonData.dart';
 
 class DBHelper {
 
@@ -23,7 +24,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects6.db");
+    String path = join(databasePath, "subjects1.db");
     print(path);
 
     Database database = await openDatabase(
@@ -80,6 +81,9 @@ class DBHelper {
         sql = "insert into Concept(conceptID, concept) values ('$count', '${j.conceito}');";
         await db.execute(sql);
         count++;
+
+        //Json(title: )
+
       }
     }
   }
@@ -96,7 +100,6 @@ class DBHelper {
     dynamic imagem;
     dynamic conceito;
 
-    print(totalLenght);
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
           'FROM Title '
@@ -127,6 +130,10 @@ class DBHelper {
           "WHERE conceptID = '$i'; ";
       conceito = await db.rawQuery(sql);
       print(conceito);
+
+      final Json object = Json(title: title[i], titleAppBar: titleAppBar[i], icon: icon[i], conceito: conceito[i], imagem: imagem[i]);
+      //Json.fromJson(object);
+
     }
   }
 }
