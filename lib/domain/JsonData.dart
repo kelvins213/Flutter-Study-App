@@ -12,25 +12,10 @@ class Json{
   });
 
   Json.fromJson(Map<String, dynamic> json){
-
-    final List oldList = [];
-
     title = json['title'];
     icon = json['iconName'];
     titleAppBar = json['titleAppBar'];
     imagem = json['imageLink'];
     conceito = json['concept'];
-
-    oldList.add(title);
-    oldList.add(icon);
-    oldList.add(titleAppBar);
-    oldList.add(imagem);
-    oldList.add(conceito);
-    newList.add(oldList);
-
-    print("Lista: $newList");
-
   }
-
-
 }
