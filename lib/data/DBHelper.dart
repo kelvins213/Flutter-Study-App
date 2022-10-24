@@ -24,7 +24,7 @@ class DBHelper {
 
   initDB() async {
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath, "subjects4.db");
+    String path = join(databasePath, "subjects8.db");
     print(path);
 
     Database database = await openDatabase(
@@ -65,16 +65,19 @@ class DBHelper {
     required Database db,
   }) async {
 
+    List <Json> objectsSubList = [];
     String sql;
-    dynamic subject;
     for (var i = 0; i < totalLength; i++) {
       sql = 'SELECT * '
           'FROM SubjectAtributes '
           "WHERE id = '$i'; ";
-      subject = await db.rawQuery(sql);
-      //error type 'QueryResultSet' is not a subtype of type 'Map<String, dynamic>'
-      print(subject);
-      Json.fromJson(subject);
+      final subject = await db.rawQuery(sql);
+
+      Json objectSub = Json.fromJson(subject[0]);
+      objectsSubList.add(objectSub);
+
+      print(objectsSubList[i]);
+      print(objectsSubList[i].title);
     }
   }
 }
