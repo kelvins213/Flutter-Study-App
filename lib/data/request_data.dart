@@ -17,16 +17,25 @@ class Request{
     list.add(objectSub);
   }
 
-  buildSubjectList({
+  Future <List> buildSubjectList({
     required listLength,
     required String appBarName,
-  }){
+    required Database db,
+  }) async {
     List list = [];
+    String sql;
+    dynamic queryResult;
+    sql = "SELECT *"
+        "FROM SubjectAtributes"
+        "WHERE appBarName = $appBarName ;";
 
+    //depois de recuperar, deve-se converter os argumentos do json para os atributos
     for (var i = 0; i < listLength; i++) {
+      queryResult = await db.rawQuery(sql);
+      list.add(queryResult[0]);
 
     }
 
-    return list;
+    return list; //nesse retorno, voce os atributos dos objetos inseridos nela ja devem estar convertidos do json
   }
 }
