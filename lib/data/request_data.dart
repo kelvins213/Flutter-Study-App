@@ -27,13 +27,12 @@ class Request{
     dynamic queryResult;
     sql = "SELECT *"
         "FROM SubjectAtributes"
-        "WHERE appBarName = $appBarName ;";
+        "WHERE appBarName = ?;";
 
     //depois de recuperar, deve-se converter os argumentos do json para os atributos
     for (var i = 0; i < listLength; i++) {
-      queryResult = await db.rawQuery(sql);
+      queryResult = await db.rawQuery(sql, [appBarName]);
       list.add(queryResult[0]);
-
     }
 
     return list; //nesse retorno, voce os atributos dos objetos inseridos nela ja devem estar convertidos do json
