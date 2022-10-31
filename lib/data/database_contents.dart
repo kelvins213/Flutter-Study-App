@@ -55,6 +55,7 @@ class DatabaseContents {
     conteudosDePreHistoria,
     conteudosDeEraPaleolitica,
     conteudosDeEraMesolitica,
+    conteudosDeEraMesolitica,
   ];
 
   static List<Conteudos> geografy_contents = [

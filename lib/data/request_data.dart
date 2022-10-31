@@ -11,10 +11,12 @@ class Request{
     String sql;
     sql = 'SELECT * '
         'FROM SubjectAtributes '
-        "WHERE id = '$count'; ";
-    final subject = await db.rawQuery(sql);
+        "WHERE id = ?; ";
+    final subject = await db.rawQuery(sql, [count]);
+    print(subject);
     Json objectSub = Json.fromJson(subject[0]);
     list.add(objectSub);
+    print(list);
   }
 
   Future <List> buildSubjectList({

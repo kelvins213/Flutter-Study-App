@@ -5,7 +5,6 @@ class Json{
   late final String titleAppBar;
   late final String imagem;
   late final String conceito;
-  static List newList = [];
 
   Json({
     required this.title, required this.icon, required this.titleAppBar, required this.imagem, required this.conceito
