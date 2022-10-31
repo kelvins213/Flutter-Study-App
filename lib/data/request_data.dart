@@ -1,5 +1,5 @@
 import 'package:sqflite/sqlite_api.dart';
-import 'package:untitled4/domain/JsonData.dart';
+import 'package:untitled4/domain/json_data.dart';
 
 class Request{
 

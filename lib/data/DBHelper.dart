@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/database_contents.dart';
 import 'package:untitled4/data/request_data.dart';
-import 'package:untitled4/domain/JsonData.dart';
+import 'package:untitled4/domain/json_data.dart';
 
 class DBHelper {
 
