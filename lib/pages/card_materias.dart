@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:untitled4/data/DBHelper.dart';
 import 'package:untitled4/data/database_contents.dart';
-import 'package:untitled4/data/request_data.dart';
+import 'package:untitled4/data/caller_database.dart';
 import 'package:untitled4/data/subject_database.dart';
 import 'package:untitled4/domain/conteudos_das_materias.dart';
 import 'package:untitled4/pages/card_submateria.dart';
@@ -15,9 +16,11 @@ class CardMaterias extends StatefulWidget {
 
 class _CardMaterias extends State <CardMaterias> {
   @override
-  //hey
+
   Widget build(BuildContext context) {
-    DBHelper().initDB();
+
+    CallDatabase().buildDatabase();
+
     return Scaffold(
       backgroundColor: Color(0xFF6E39F5),
       appBar: AppBar(
@@ -52,6 +55,7 @@ class _CardMaterias extends State <CardMaterias> {
                                   children: [
                                     const SizedBox(height: 60),
                                     //buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: Request().buildSubjectList(listLength: DatabaseContents.subjects_contents[index].length, appBarName: DatabaseContents.subjects_contents[index][0].titleAppBar)),
+                                    //buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents[index], title: Request().atributesList[0].titleAppBar),
                                     buildBody(materia: SubjectDatabaseContents.subjects[index], listaMaterias: DatabaseContents.subjects_contents[index]),
                                   ],
                                 );
@@ -111,6 +115,8 @@ class _CardMaterias extends State <CardMaterias> {
   }
 
   buildBody({
+    //required String title,
+    //required IconData icon,
     required Materias materia,
     required List listaMaterias,
   }) {

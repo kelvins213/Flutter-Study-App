@@ -36,7 +36,7 @@ class DatabaseContents {
   static Conteudos conteudosDeProgramacaoWeb = Conteudos("PROGRAMAÇÃO WEB", Icons.dashboard, "PROGRAMAÇÃO", "https://respostas.sebrae.com.br/wp-content/uploads/2020/06/0-destaque-linguagens-de-programacao-2019.jpg", "As linguagens de programação web são utilizadas especificamente para o desenvolvimentos das camadas de apresentação e de lógica de negócio de web sites, portais e aplicações web em geral.");
   static Conteudos conteudosDeDesenvolvimentoPessoal1 = Conteudos("POSTURA DE VIDA", Icons.nightlife, "EMPREENDEDORISMO", "https://vidasimples.co/wp-content/uploads/2019/10/sentido-para-vida-vida-simples-1024x683.jpg", "Empreender é usar o tempo e as suas melhores competências técnicas e comportamentais (soft skills) com autonomia para criar valor, assumindo riscos e aceitando desafios. Empreender pode ser uma ação de uma ou mais pessoas que possuam esse perfil.");
   static Conteudos conteudosDeDesenvolvimentoPessoal2 = Conteudos("SUCESSO E FRACASSO", Icons.people, "EMPREENDEDORISMO", "https://cdn.cloudcoaching.com.br/wp-content/uploads/2019/01/sucesso-x-fracasso-dois-lados-da-mesma-moeda-1200x628.png", "Fracasso significa tentativa. E, quando alguém tenta muitas vezes, se torna excelente naquilo que está repetindo. Sucesso é uma questão de bons hábitos que se tornam excelentes comportamentos.");
-  static Conteudos conteudosDeExemploEmpreendedor = Conteudos("ELLON LUSK", Icons.store, "EMPREENDEDORISMO", "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2022/05/05130137/Elon-Mudk-1.jpg", "A Tesla é uma empresa especializada em carros elétricos fundada em 2003, em São Francisco, Califórnia pelos engenheiros Martin Eberhard e Marc Tarpenning. No ano seguinte, a companhia recebeu um investimento de US6,5 milhões de Elon Musk, que passou a ocupar o cargo de CEO e ser reconhecido como um dos cofundadores.");
+  static Conteudos conteudosDeExemploEmpreendedor = Conteudos("ELLON MUSK", Icons.store, "EMPREENDEDORISMO", "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2022/05/05130137/Elon-Mudk-1.jpg", "A Tesla é uma empresa especializada em carros elétricos fundada em 2003, em São Francisco, Califórnia pelos engenheiros Martin Eberhard e Marc Tarpenning. No ano seguinte, a companhia recebeu um investimento de US6,5 milhões de Elon Musk, que passou a ocupar o cargo de CEO e ser reconhecido como um dos cofundadores.");
 
   static  List<Conteudos> portuguese_contents = [
     conteudosDeSubstantivos,
@@ -123,62 +123,62 @@ class DatabaseContents {
 
 
   static Future <List<Conteudos>> getPortugueseListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  portuguese_contents;
   }
 
   static Future <List<Conteudos>> getMathListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  maths_contents;
   }
 
   static Future <List<Conteudos>> getHistoryListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  history_contents;
   }
 
   static Future <List<Conteudos>> getGeografyListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  geografy_contents;
   }
 
   static Future <List<Conteudos>> getphilosophyListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  philosophy_contents;
   }
 
   static Future <List<Conteudos>> getSociologyListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  sociology_contents;
   }
 
   static Future <List<Conteudos>> getPhysicalListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  physical_contents;
   }
 
   static Future <List<Conteudos>> getChemistryListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  chemistry_contents;
   }
 
   static Future <List<Conteudos>> getBiologyListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  biology_contents;
   }
 
   static Future <List<Conteudos>> getProgrammingListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  programming_contents;
   }
 
   static Future <List<Conteudos>> getBussinessListContents() async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return  business_contents;
   }
 
   static Future<Conteudos> getFutureObject(Conteudos obj) async{
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     return obj;
   }
 
