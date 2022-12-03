@@ -41,6 +41,6 @@ Using the same logic, I continued coding, in order to show the topic's contents.
 ## Conclusion
 
 Once finished, I realized I had learnt so much, like fundamentals of Flutter, fundamentals of front-end, practicing on arrays manipulation, objects’ instantiation, things with integrated mysql database, json files and asynchronous programming. Therefore, I accomplished my mission. 
-
+ 
 ## Thanks, everyone!
 
