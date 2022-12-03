@@ -7,8 +7,8 @@ Guys, I was given the following task to accomplish: I had to implement one of th
 
 <div style="display: flex; justify-content: space-between;" align="center">
   <img src="https://user-images.githubusercontent.com/103438311/205446721-8190d63a-a32b-46ec-a7e4-951d6027f944.png" width="250px"/>  
-  <img src="https://user-images.githubusercontent.com/103438311/205446719-9f0ee61c-69bc-4f84-b826-edcf7c8131d8.png" width="250px"/>  
   <img src="https://user-images.githubusercontent.com/103438311/205446714-92b60179-10df-4f32-871f-ec6aa01db8a4.png" width="250px"/>  
+  <img src="https://user-images.githubusercontent.com/103438311/205446719-9f0ee61c-69bc-4f84-b826-edcf7c8131d8.png" width="250px"/>  
 </div>
 
 ## Explanacion
