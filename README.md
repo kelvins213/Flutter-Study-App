@@ -1,16 +1,6 @@
-# untitled4
+# Study App
 
-A new Flutter project.
 
-## Getting Started
+## Context 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Guys, I was given the following task to accomplish: I had to implement one of the screens in a study app, which my team is developing with Flutter. This screen must have the subjects’ contents, like stuff from math, history, geography, etc. So, I coded, and the result was this one: 
