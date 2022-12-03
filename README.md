@@ -40,10 +40,10 @@ Using the same logic, I continued coding, in order to show the topic's contents.
 
 ## Conclusion
 
-Once finished, I realized I had learnt so much, like ```fundamentals of Flutter```, ```fundamentals of front-end```, ```practicing on arrays manipulation```, ```objects’ instantiation```, things with ```integrated mysql database```, ```json files``` and ```asynchronous programming```. Therefore, I accomplished my mission. 
+Once finished, I realized I had learnt so much, like ```fundamentals of Flutter```, ```fundamentals of front-end```, ```practicing on arrays manipulation```, ```objects’ instantiation```, things with ```integrated mysql database```, ```json files``` and ```asynchronous programming.``` Therefore, I accomplished my mission. 
 
 https://user-images.githubusercontent.com/103438311/205449297-8a5c656c-da20-420e-bba3-0de7b69b3caf.mp4
 
 ## Thanks, everyone!
 
->The source code is avaliable on ```branch main.```
+The source code is avaliable on ```branch main.```
