@@ -17,7 +17,7 @@ If you click on ‘PORTUGUÊS’, the app must show a new screen with the PORTUG
 
 ## Solution
 
-For this to work, I thought I could actually show for the user always the same screen, but also always changing the parameters according to the subject. No matter what button the user clicked, like “HISTÓRIA”, “GEOGRAFIA” or “SOCIOLOGIA”, the app would always show the same screen, but with the following parameters. In this case, if he clicks on “SOCIOLOGIA”, he will see a page with the contents of SOCIOLOGIA, but in case he clicks on HISTÓRIA, he will see the same page, but with the HISTÓRIA parameters, and I get this result: 
+For this to work, I thought I could actually show for the user always the same screen, but also always changing the parameters according to the subject. No matter what button the user clicked, like “HISTÓRIA”, “GEOGRAFIA” or “SOCIOLOGIA”, the app would always show the same screen, but with the following parameters. In this case, if he clicks on “SOCIOLOGIA”, he will see a page with the contents of SOCIOLOGIA, but in case he clicks on HISTÓRIA, he will see the same page, but with the HISTÓRIA parameters, and I got this result: 
 
 
 <div style="display: flex; flex-direction: column;" align="center">
@@ -30,7 +30,7 @@ For this to work, I thought I could actually show for the user always the same s
 
 Talking about the code itself, I worked out a logic based on the creation of objects and arrays of them. Each subject, like PORTUGUÊS and MATEMÁTICA, had their own corresponding array of objects. Meaning, if you click on ‘PORTUGUÊS’ button, the ElevatedButton widget will send for the onPressed method an array with a bunch of objects that had the contents of PORTUGUÊS in theirs attributes, and this goes for MATEMÁTICA and the others too. So the following page, which is above, could get the right contents. Besides, I also implemented other resources for this to work, like a Listview.builder, to read all the positions from the arrays’ objects; a domain file and two database files, which, together, do the creation of the objects and their arrays.
 
-Using the same logic, I continued coding, in order to show the topic's contents. In the image above, I clicked on “ÉMILE DURKHEIM”, “ERA PALEOLÍTICA" and “GEOMETRIA PLANA”, and get the result:
+Using the same logic, I continued coding, in order to show the topic's contents. In the image above, I clicked on “ÉMILE DURKHEIM”, “ERA PALEOLÍTICA" and “GEOMETRIA PLANA”, and got the result:
 
 <div style="display: flex; flex-direction: column;" align="center">
   <img src="https://user-images.githubusercontent.com/103438311/205445832-f4cfd822-a72c-46fc-90c4-94988e36f4e0.png" width="250px"/>  
