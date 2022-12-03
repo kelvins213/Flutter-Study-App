@@ -3,7 +3,7 @@
 
 ## Context 
 
-Guys, I was given the following task to accomplish: I had to implement one of the screens in a study app, which my team is developing with ```Flutter```. This screen must have the subjects’ contents, like stuff from math, history, geography, etc. So, I coded, and the result was this one: 
+Guys, I was given the following task to accomplish: I had to implement one of the screens in a study app, which my team is developing with ```Flutter.``` This screen must have the subjects’ contents, like stuff from math, history, geography, etc. So, I coded, and the result was this one: 
 
 <div style="display: flex; justify-content: space-between;" align="center">
   <img src="https://user-images.githubusercontent.com/103438311/205446721-8190d63a-a32b-46ec-a7e4-951d6027f944.png" width="250px"/>  
