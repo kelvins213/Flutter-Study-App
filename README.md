@@ -11,7 +11,7 @@ Guys, I was given the following task to accomplish: I had to implement one of th
   <img src="https://user-images.githubusercontent.com/103438311/205446719-9f0ee61c-69bc-4f84-b826-edcf7c8131d8.png" width="250px"/>  
 </div>
 
-## Explanacion
+## Explanation
 
 If you click on *PORTUGUÊS*, the app must show a new screen with the *PORTUGUÊS* contents, and this goes for the others too. Because of this logic, I realized that I still had a lot of work to do. I would have to implement uncountables screens for each subject, in order to show in each one the following subject content. With this in mind, I worked out a solution to make this process ```dynamically```, so I could finish the task faster, without having to create a lot of screens.
 
